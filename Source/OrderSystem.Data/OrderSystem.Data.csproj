@@ -28,6 +28,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="OrderRepo.cs" />
+    <Compile Include="IOrderRepo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OrderSystem.Entities\OrderSystem.Entities.csproj">
+      <Project>{B84EF599-2F94-4EE2-A8D9-56CF0E34E3B6}</Project>
+      <Name>OrderSystem.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

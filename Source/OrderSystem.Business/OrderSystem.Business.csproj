@@ -27,5 +27,15 @@
   <ItemGroup>
     <Compile Include="OrderService.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OrderSystem.Data\OrderSystem.Data.csproj">
+      <Project>{A9EED8F8-D34E-4D21-80A0-955BFE6D3EBF}</Project>
+      <Name>OrderSystem.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OrderSystem.Entities\OrderSystem.Entities.csproj">
+      <Project>{B84EF599-2F94-4EE2-A8D9-56CF0E34E3B6}</Project>
+      <Name>OrderSystem.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
