@@ -10,8 +10,10 @@ namespace OrderSystem.Data
     public interface IOrderRepo
     {
         Order GetOrderByID(int id);
-        List<Order> GetOrders();
         void UpdateOrder(Order order);
+        Order CreateOrder(Order data);
+        IEnumerable<Order> GetUnProcessedOrders();
+        IEnumerable<Order> GetOrdersByOrderId(int orderId);
     }
 
 
@@ -37,11 +39,11 @@ namespace OrderSystem.Data
 
         public Order GetOrderByID(int id)
         {
-            var newOrder = new Order
+            return new Order
             {
-                Id = data.Id,
+                Id = id,
                 Name = $"Order: {id}",
-                Description = data.Description,
+                Description = "blarg",
                 ProcessedAt = DateTimeOffset.Now
 
 
@@ -49,15 +51,20 @@ namespace OrderSystem.Data
 
         }
 
-        public List<Order> GetOrders()
+        internal IEnumerable<Order> GetUnProcessedOrders()
         {
 
-            return new List<Order>
-            {
-              
-            };
+            //return _db.Query<Order>("SELECT * FROM orders;");
 
         }
+
+        internal IEnumerable<Order> GetOrdersByOrderId(int orderId)
+        {
+
+           
+
+        }
+
 
 
     }

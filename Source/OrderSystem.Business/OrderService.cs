@@ -37,7 +37,7 @@ namespace OrderSystem.Business
             {
                 throw new Exception("Order Not Found");
             }
-            if (currentOrder.ProcessedClosedAt != null)
+            if (currentOrder.ProcessedAt != null)
             {
                 throw new Exception(" Order Already Processed Cannot Modify");
             }
