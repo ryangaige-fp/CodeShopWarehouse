@@ -28,7 +28,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="OrderRepo.cs" />
-    <Compile Include="IOrderRepo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OrderSystem.Entities\OrderSystem.Entities.csproj">

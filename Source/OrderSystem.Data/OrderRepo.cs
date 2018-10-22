@@ -12,6 +12,7 @@ namespace OrderSystem.Data
         Order GetOrderByID(int id);
         void UpdateOrder(Order order);
         Order CreateOrder(Order data);
+        List<Order> GetOrders();
         IEnumerable<Order> GetUnProcessedOrders();
         IEnumerable<Order> GetOrdersByOrderId(int orderId);
     }
@@ -43,13 +44,24 @@ namespace OrderSystem.Data
             {
                 Id = id,
                 Name = $"Order: {id}",
-                Description = "blarg",
+                Quantity = "blarg",
                 ProcessedAt = DateTimeOffset.Now
 
 
             };
 
         }
+
+
+        public List<Order> GetOrders()
+        {
+            GetOrderByID(1),
+            GetOrderByID(2),
+            GetOrderByID(3),
+            GetOrderByID(4),
+            GetOrderByID(5),
+
+        };
 
         internal IEnumerable<Order> GetUnProcessedOrders()
         {
