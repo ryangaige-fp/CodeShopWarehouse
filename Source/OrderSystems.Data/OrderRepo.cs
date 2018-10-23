@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
-using OrderSystem.Entities;
 
-namespace OrderSystem.Data
+using OrderSystems.Entities;
+
+namespace OrderSystems.Data
 {
 
     public interface IOrderRepo
@@ -26,7 +27,7 @@ namespace OrderSystem.Data
         private readonly IDbConnection _db;
 
 
-        public OrderRepo (IDbConnection db)
+        public OrderRepo(IDbConnection db)
         {
             _db = db;
         }
@@ -76,7 +77,7 @@ namespace OrderSystem.Data
         internal IEnumerable<Order> GetOrdersByOrderId(int orderId)
         {
 
-           
+
 
         }
 

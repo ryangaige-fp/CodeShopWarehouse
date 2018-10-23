@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using OrderSystem.Data;
-using OrderSystem.Entities;
+using OrderSystems.Entities;
+using OrderSystems.Data;
 
-namespace OrderSystem.Business
+namespace OrderSystems.Business
 {
     public class OrderService
     {
 
         private readonly IOrderRepo _orderRepo;
 
-        public OrderService (IOrderRepo orderRepo)
+        public OrderService(IOrderRepo orderRepo)
         {
             _orderRepo = orderRepo;
 
@@ -22,13 +22,13 @@ namespace OrderSystem.Business
 
         }
 
-        public Order GetOrderById (int id)
+        public Order GetOrderById(int id)
         {
-            return _orderRepo.GetOrderByID(id);
+            return _orderRepo.GetOrderById(id);
 
         }
 
-        public Order ProcessOrder (Order order)
+        public Order ProcessOrder(Order order)
         {
 
             var currentOrder = GetOrderById(order.Id);
@@ -42,8 +42,8 @@ namespace OrderSystem.Business
                 throw new Exception(" Order Already Processed Cannot Modify");
             }
 
-            
-            return order;
+
+            return currentOrder;
 
         }
 

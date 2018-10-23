@@ -7,7 +7,7 @@ using System.Web.Mvc;
 using OrderSystem.web;
 using OrderSystem.web.Controllers;
 
-namespace OrderSystem.web.Tests.Controllers
+namespace OrderSystem.Business.Test
 {
     [TestFixture]
     public class HomeControllerTest
