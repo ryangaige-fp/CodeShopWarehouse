@@ -12,4 +12,7 @@
     <ProjectReference Include="..\OrderSystems.Business\OrderSystems.Business.csproj" />
     <ProjectReference Include="..\OrderSystems.Entities\OrderSystems.Entities.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Controllers\OrdersViewController.cshtml.cs" />
+  </ItemGroup>
 </Project>

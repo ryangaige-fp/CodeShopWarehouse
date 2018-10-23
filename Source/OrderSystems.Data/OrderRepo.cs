@@ -10,12 +10,11 @@ namespace OrderSystems.Data
 
     public interface IOrderRepo
     {
-        Order GetOrderByID(int id);
         void UpdateOrder(Order order);
         Order CreateOrder(Order data);
         List<Order> GetOrders();
         IEnumerable<Order> GetUnProcessedOrders();
-        IEnumerable<Order> GetOrdersByOrderId(int orderId);
+        IEnumerable<Order> GetOrdersByProductId(int orderId);
         Order GetOrderById(int id);
     }
 
@@ -32,6 +31,11 @@ namespace OrderSystems.Data
             _db = db;
         }
 
+        public Order CreateOrder(Order data)
+        {
+            return null;
+        }
+
         public void UpdateOrder(Order order)
 
         {
@@ -40,16 +44,14 @@ namespace OrderSystems.Data
         }
 
 
-        public Order GetOrderByID(int id)
+        public Order GetOrderById(int id)
         {
             return new Order
             {
                 Id = id,
                 Name = $"Order: {id}",
-                Quantity = "blarg",
+                Quantity = 7,
                 ProcessedAt = DateTimeOffset.Now
-
-
             };
 
         }
@@ -59,28 +61,28 @@ namespace OrderSystems.Data
         {
             return new List<Order>
             {
-            GetOrderByID(1),
-            GetOrderByID(2),
-            GetOrderByID(3),
-            GetOrderByID(4),
-            GetOrderByID(5),
+            GetOrderById(1),
+            GetOrderById(2),
+            GetOrderById(3),
+            GetOrderById(4),
+            GetOrderById(5),
             };
         }
 
-        internal IEnumerable<Order> GetUnProcessedOrders()
+        public IEnumerable<Order> GetUnProcessedOrders()
         {
 
+            return null;
             //return _db.Query<Order>("SELECT * FROM orders;");
 
         }
 
-        internal IEnumerable<Order> GetOrdersByOrderId(int orderId)
+        public IEnumerable<Order> GetOrdersByProductId(int orderId)
         {
 
-
+            return null;
 
         }
-
 
 
     }

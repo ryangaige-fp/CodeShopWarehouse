@@ -13,7 +13,7 @@ namespace OrderSystem.webb.Controllers
     {
         public IActionResult Index()
         {
-            return View(_orderService);
+            return View();
         }
 
         public IActionResult About()
