@@ -4,4 +4,8 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\OrderSystems.Data\OrderSystems.Data.csproj" />
+    <ProjectReference Include="..\OrderSystems.Entities\OrderSystems.Entities.csproj" />
+  </ItemGroup>
 </Project>
