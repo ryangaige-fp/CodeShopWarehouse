@@ -1,0 +1,44 @@
+﻿@model OrderSystem.Webb.Models.Menu
+<div>
+    <h4>Menu</h4>
+    <hr />
+    <h6>Orders</h6>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Description
+                </th>
+                <th>
+                    Quantity
+                </th>
+                <th>
+                    CreatedAt
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Orders)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Quantity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedAt)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

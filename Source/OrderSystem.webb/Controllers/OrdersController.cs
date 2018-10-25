@@ -18,6 +18,7 @@ namespace OrderSystem.webb.Controllers
     {
 
         private readonly OrderService _orderService;
+
         public OrdersController(OrderService orderService)
         {
             _orderService = orderService;
@@ -26,7 +27,7 @@ namespace OrderSystem.webb.Controllers
 
         // GET: api/values
         [HttpGet]
-        public IActionResult getOrders()
+        public IActionResult GetOrders()
         {
             return Ok(_orderService.GetOrders());
 

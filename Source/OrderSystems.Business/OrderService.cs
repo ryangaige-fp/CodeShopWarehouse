@@ -28,6 +28,19 @@ namespace OrderSystems.Business
 
         }
 
+        public Order UpdateOrder(Order o)
+        {
+            return _orderRepo.UpdateOrder(o);
+
+        }
+
+
+        public Order CreateOrder (Order order)
+        {
+            return _orderRepo.CreateOrder(order);
+        }
+
+
         public Order ProcessOrder(Order order)
         {
 

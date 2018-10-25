@@ -14,5 +14,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Controllers\OrdersViewController.cshtml.cs" />
+    <Compile Remove="Controllers\Template.cs" />
+    <Compile Remove="Views\Orders\Template.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="Controllers\Template.cshtml" />
+    <Content Remove="Views\Orders\Template.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Orders\" />
   </ItemGroup>
 </Project>

@@ -10,7 +10,7 @@ namespace OrderSystems.Data
 
     public interface IOrderRepo
     {
-        void UpdateOrder(Order order);
+        Order UpdateOrder(Order order);
         Order CreateOrder(Order data);
         List<Order> GetOrders();
         IEnumerable<Order> GetUnProcessedOrders();
@@ -31,42 +31,38 @@ namespace OrderSystems.Data
             _db = db;
         }
 
-        public Order CreateOrder(Order data)
+        public Order CreateOrder(Order order)
         {
-            return null;
+            order.Id = FakeDb.NextId;
+            FakeDb.NextId += 1;
+            FakeDb.Orders.Add(order);
+            return order;
         }
 
-        public void UpdateOrder(Order order)
+        public Order UpdateOrder(Order order)
 
         {
-            Console.WriteLine("Order Processed");
+            var o = GetOrderById(order.Id);
+            if (o == null) { throw new Exception("Order not found!"); }
+            o.Name = order.Name;
+            o.Description = order.Description;
+            o.Quantity = order.Quantity;
+            o.CreatedAt = order.CreatedAt;
+            return o;
 
         }
 
 
         public Order GetOrderById(int id)
         {
-            return new Order
-            {
-                Id = id,
-                Name = $"Order: {id}",
-                Quantity = 7,
-                ProcessedAt = DateTimeOffset.Now
-            };
 
+            return FakeDb.Orders.Find(o => o.Id == id);
         }
 
 
         public List<Order> GetOrders()
         {
-            return new List<Order>
-            {
-            GetOrderById(1),
-            GetOrderById(2),
-            GetOrderById(3),
-            GetOrderById(4),
-            GetOrderById(5),
-            };
+            return FakeDb.Orders;
         }
 
         public IEnumerable<Order> GetUnProcessedOrders()
@@ -84,6 +80,6 @@ namespace OrderSystems.Data
 
         }
 
-
+       
     }
 }

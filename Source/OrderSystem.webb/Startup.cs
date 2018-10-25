@@ -37,9 +37,11 @@ namespace OrderSystem.webb
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            services.AddTransient<OrderService>();
-            services.AddTransient<IOrderRepo, OrderRepo>();
             services.AddTransient<IDbConnection>(x => null);
+
+            services.AddTransient<IOrderRepo, OrderRepo>();
+
+            services.AddTransient<OrderService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
