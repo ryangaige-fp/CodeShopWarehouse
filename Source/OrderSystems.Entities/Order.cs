@@ -10,6 +10,6 @@ namespace OrderSystems.Entities
         public string Description { get; set; }
         public int Quantity { get; set; }
         public DateTimeOffset CreatedAt { get; set; }
-        public DateTimeOffset ProcessedAt { get; set; }
+        public bool Processed { get; set; }
     }
 }

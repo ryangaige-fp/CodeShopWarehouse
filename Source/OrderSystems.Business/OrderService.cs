@@ -35,9 +35,9 @@ namespace OrderSystems.Business
         }
 
 
-        public Order CreateOrder (Order order)
+        public Order Create (Order order)
         {
-            return _orderRepo.CreateOrder(order);
+            return _orderRepo.Create(order);
         }
 
 
@@ -50,12 +50,13 @@ namespace OrderSystems.Business
             {
                 throw new Exception("Order Not Found");
             }
-            if (currentOrder.ProcessedAt != null)
+            if (currentOrder.Processed != false)
             {
                 throw new Exception(" Order Already Processed Cannot Modify");
             }
 
-
+            currentOrder.Processed = true;
+            
             return currentOrder;
 
         }

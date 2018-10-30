@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
-
 using OrderSystems.Entities;
+
 
 namespace OrderSystems.Data
 {
@@ -11,7 +11,7 @@ namespace OrderSystems.Data
     public interface IOrderRepo
     {
         Order UpdateOrder(Order order);
-        Order CreateOrder(Order data);
+        Order Create(Order data);
         List<Order> GetOrders();
         IEnumerable<Order> GetUnProcessedOrders();
         IEnumerable<Order> GetOrdersByProductId(int orderId);
@@ -31,7 +31,7 @@ namespace OrderSystems.Data
             _db = db;
         }
 
-        public Order CreateOrder(Order order)
+        public Order Create(Order order)
         {
             order.Id = FakeDb.NextId;
             FakeDb.NextId += 1;

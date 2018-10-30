@@ -3,7 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using OrderSystems.Business;
+using OrderSystems.Entities;
+using OrderSystem.webb.Models;
+
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -12,8 +17,8 @@ namespace OrderSystem.webb.Controllers
 
 {
 
-    [ApiController]
     [Route("api/[controller]")]
+    [ApiController]
     public class OrdersController : Controller
     {
 
@@ -27,36 +32,84 @@ namespace OrderSystem.webb.Controllers
 
         // GET: api/values
         [HttpGet]
-        public IActionResult GetOrders()
+        public List<Order> GetAll()
         {
-            return Ok(_orderService.GetOrders());
+            return _orderService.GetOrders();
 
         }
 
-        // GET api/values/5
         [HttpGet("{id}")]
-        public IActionResult GetOrderById(int id)
+        public Order GetById(int id)
         {
-            return Ok(_orderService.GetOrderById(id));
+            return _orderService.GetOrderById(id);
 
         }
 
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT api/values/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+        public Order ProcessOrder(int id)
         {
+            var o = _orderService.GetOrderById(id);
+            return _orderService.ProcessOrder(o);
         }
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public string Delete(int id)
         {
+            //this would need to go and delete one
+            return "deleted";
         }
+
+        //[HttpGet]
+        //public IActionResult Index()
+        //{
+        //    return View(_orderService.GetOrders());
+
+        //}
+
+        // GET api/values/5
+        //[HttpGet("{id}")]
+        //public IActionResult Details(int id)
+        //{
+        //    var order = _orderService.GetOrderById(id);
+        //    if (order == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    return View(order);
+
+        //}
+
+        //public IActionResult Create()
+        //{
+        //    return View("Create");
+
+        //}
+
+
+
+        // POST api/values
+        //[HttpPost]
+        //public IActionResult Create(Order order)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        Order o = _orderService.Create(order);
+        //        return RedirectToAction(nameof(Index));
+        //    }
+        //    return View(order);
+        //}
+
+        //[HttpPut("{id}")]
+        //public IActionResult ProcessOrder ( int id)
+        //{
+        //    var o = _orderService.GetOrderById(id);
+        //    _orderService.ProcessOrder(o);
+        //    return View("Index");
+        //}
+
+
+
     }
 }

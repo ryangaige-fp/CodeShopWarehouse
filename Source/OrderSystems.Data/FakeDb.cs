@@ -25,7 +25,7 @@ namespace OrderSystems.Data
             new Order(){
                 Id = 3,
                 Name = "Nintendo 64",
-                Quantity =  7,
+                Quantity =  10,
                 Description = "64 bits of pure Nintendo power",
                 CreatedAt = DateTimeOffset.Now
             },

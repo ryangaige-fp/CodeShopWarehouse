@@ -7,6 +7,10 @@
         <thead>
             <tr>
                 <th>
+                    Id
+                </th>
+
+                <th>
                     Name
                 </th>
                 <th>
@@ -24,6 +28,9 @@
             @foreach (var item in Model.Orders)
             {
                 <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Name)
                     </td>
